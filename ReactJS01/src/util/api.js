@@ -22,3 +22,9 @@ const getUserApi = () => {
     const URL_API = "/v1/api/user";
     return axios.get(URL_API);
 }
+
+module.exports = {
+    createUserApi,
+    loginApi,
+    getUserApi
+}
