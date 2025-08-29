@@ -5,7 +5,7 @@ const { createUser, handleLogin, getUser, getAccount } = require('../controllers
 
 const apiRoutes = express.Router();
 
-apiRoutes.all("*", auth);
+apiRoutes.all(/.*/, auth);
 
 apiRoutes.get("/", (req, res) => {
     return res.status(200).json("Hello World Api")

@@ -24,7 +24,7 @@ app.use("/", webAPI);
 // Khai báo route cho API
 app.use("/v1/api", apiRoutes);
 
-async () => {
+(async () => {
     try {
         // Kết nối database
         await connection()
@@ -36,4 +36,4 @@ async () => {
     } catch (error) {
         console.error("Error connecting to the database:", error);
     }
-}
+})();

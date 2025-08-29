@@ -1,5 +1,5 @@
 require('dotenv').config();
-const moongose = require('mongoose');
+const mongoose = require('mongoose');
 
 const dbState = [{
     value: 0,
@@ -19,7 +19,12 @@ const dbState = [{
 }];
 
 const connection = async () => {
-    await mongoose.connect(process.env.MONGODB_URL);
+    await mongoose.connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      ssl: true,
+      tlsAllowInvalidCertificates: false,
+    });
     const state = Number(mongoose.connection.readyState);
     console.log(`MongoDB is ${dbState.find(e => e.value === state).label} to database`);
 }
